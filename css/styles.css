@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gradient-1: hsl(236, 72%, 79%);
+  --gradient-2: hsl(237, 63%, 64%);
+  --off-white: hsl(240, 78%, 98%);
+  --light-grey-blue:  hsl(234, 14%, 74%);
+  --grey-blue: hsl(233, 13%, 49%);
+  --dark-grey-blue: hsl(232, 13%, 33%);
+
+  font-family: Montserrat, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+  font-size: 15px;
+}
