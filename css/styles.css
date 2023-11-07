@@ -19,7 +19,7 @@
 
 body {
   /* mobile has the background swirls only at the top right */
-  background-color: hsla(234, 14%, 74%, 40%);
+  background-color: #f2f2fe;
   background-image: url('../images/bg-top.svg');
   background-size: 30% 30%;
   background-position: top right;
@@ -40,16 +40,21 @@ header {
 header > h1 {
   padding: 1rem 0;
   text-align: center;
-  color: var(--grey-blue);
+  color: hsla(232, 13%, 33%, 80%);
 }
 
 header > .switch-area {
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex: row nowrap;
   justify-content: center;
   align-items: center;
+  gap: 1.2rem;
+}
+
+header > .switch-area > p {
+  color: var(--grey-blue);
 }
 
 p.toggle {
@@ -57,6 +62,7 @@ p.toggle {
   height: 34px;
   background-image: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
   border-radius: 100px;
+  cursor: pointer;
 }
 
 span.white-switch {
@@ -68,6 +74,13 @@ span.white-switch {
   left: 4px;
   background-color: white;
   border-radius: 100px;
+  transition: left 0.3s ease-in;
+}
+
+span.white-switch.move-right {
+  left: 36px;
+  right: 3px;
+  transition: left 0.3s linear;
 }
 
 /* card styling */
@@ -77,6 +90,7 @@ article.card {
   padding: 2rem;
   border-radius: 10px;
   background-color: var(--off-white);
+  box-shadow: var(--light-grey-blue) 0 12px 46px 0;
 }
 
 article.card.middle {
