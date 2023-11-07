@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,21 +12,23 @@
   --gradient-1: hsl(236, 72%, 79%);
   --gradient-2: hsl(237, 63%, 64%);
   --off-white: hsl(240, 78%, 98%);
-  --light-grey-blue:  hsl(234, 14%, 74%);
+  --light-grey-blue: hsl(234, 14%, 74%);
   --grey-blue: hsl(233, 13%, 49%);
   --dark-grey-blue: hsl(232, 13%, 33%);
 
-  font-family: Montserrat, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: Montserrat, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+    sans-serif;
 }
 
 body {
   /* mobile has the background swirls only at the top right */
   background-color: #f2f2fe;
   background-image: url('../images/bg-top.svg');
-  background-size: 30% 30%;
+  background-size: 30% 50%;
   background-position: top right;
   background-repeat: no-repeat;
   font-size: 15px;
+  height: 100vh;
 }
 
 main {
@@ -60,7 +64,11 @@ header > .switch-area > p {
 p.toggle {
   width: 68px;
   height: 34px;
-  background-image: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+  background-image: linear-gradient(
+    90deg,
+    var(--gradient-1),
+    var(--gradient-2)
+  );
   border-radius: 100px;
   cursor: pointer;
 }
@@ -94,11 +102,23 @@ article.card {
 }
 
 article.card.middle {
-  background-image: linear-gradient(180deg, var(--gradient-1), var(--gradient-2));
+  background-image: linear-gradient(
+    180deg,
+    var(--gradient-1),
+    var(--gradient-2)
+  );
 }
 
 /* tablet/desktop media queries */
 @media screen and (min-width: 1000px) {
+  body {
+    background-image: url('../images/bg-top.svg'),
+      url('../images/bg-bottom.svg');
+    background-size: 20% 40%, 30% 25%;
+    background-position: top right, bottom left;
+    background-repeat: no-repeat, no-repeat;
+  }
+
   main {
     width: auto;
     margin: 0 auto;
