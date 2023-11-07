@@ -15,6 +15,7 @@
   --light-grey-blue: hsl(234, 14%, 74%);
   --grey-blue: hsl(233, 13%, 49%);
   --dark-grey-blue: hsl(232, 13%, 33%);
+  --main-text-col: hsla(232, 13%, 33%, 80%);
 
   font-family: Montserrat, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
     sans-serif;
@@ -28,6 +29,7 @@ body {
   background-position: top right;
   background-repeat: no-repeat;
   font-size: 15px;
+  font-weight: 700;
   height: 100vh;
 }
 
@@ -44,7 +46,7 @@ header {
 header > h1 {
   padding: 1rem 0;
   text-align: center;
-  color: hsla(232, 13%, 33%, 80%);
+  color: var(--main-text-col);
 }
 
 header > .switch-area {
@@ -73,6 +75,15 @@ p.toggle {
   cursor: pointer;
 }
 
+p.toggle:active,
+p.toggle:hover {
+  background-image: linear-gradient(
+    90deg,
+    hsla(236, 72%, 79%, 70%),
+    hsla(237, 63%, 64%, 70%)
+  );
+}
+
 span.white-switch {
   display: block;
   width: 28px;
@@ -93,11 +104,19 @@ span.white-switch.move-right {
 
 /* card styling */
 article.card {
-  width: min(95%, 375px);
+  width: min(95%, 355px);
   margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  /* other items */
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 7px;
   background-color: var(--off-white);
+  color: var(--grey-blue);
   box-shadow: var(--light-grey-blue) 0 12px 46px 0;
 }
 
@@ -107,10 +126,102 @@ article.card.middle {
     var(--gradient-1),
     var(--gradient-2)
   );
+
+  color: var(--off-white);
+}
+
+.card h2,
+ul.details > li {
+  list-style-type: none;
+  color: var(--main-text-col);
+  font-size: 1.2rem;
+}
+
+.price::before {
+  content: '$';
+  font-size: 3rem;
+  margin-right: 0.5rem;
+}
+
+.price {
+  display: inline-flex;
+  align-items: center;
+  font-size: 4rem;
+  line-height: 2;
+  color: hsla(232, 13%, 33%, 90%);
+}
+
+article.card.middle .price,
+.card.middle h2,
+.card.middle ul.details > li {
+  color: var(--off-white);
+}
+
+.price.hidden {
+  display: none;
+}
+
+/* details list in card */
+.card ul.details {
+  width: 100%;
+}
+
+.card ul.details > li {
+  text-align: center;
+  border-top: 1px solid var(--light-grey-blue);
+  padding: 1rem 0;
+}
+
+.card ul.details > li:last-child {
+  border-bottom: 1px solid var(--light-grey-blue);
+}
+/* buttons - learn more */
+button {
+  padding: 1rem 0;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 7px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+article.card > button {
+  background-image: linear-gradient(
+    90deg,
+    var(--gradient-1),
+    var(--gradient-2)
+  );
+  color: var(--off-white);
+  border: 1px solid var(--off-white);
+}
+
+article.card.middle > button {
+  background-color: var(--off-white);
+  background-image: none;
+  border: 1px solid var(--gradient-2);
+  color: var(--gradient-2);
+}
+
+article.card > button:hover,
+article.card > button:focus {
+  background-color: var(--off-white);
+  background-image: none;
+  transition: background-image 0.3s linear;
+  color: var(--gradient-2);
+  border: 1px solid var(--dark-grey-blue);
+}
+
+article.card.middle > button:hover,
+article.card.middle > button:focus {
+  background-color: var(--gradient-2);
+  transition: background-color 0.3s linear;
+  color: var(--off-white);
+  border: 1px solid var(--off-white);
 }
 
 /* tablet/desktop media queries */
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   body {
     background-image: url('../images/bg-top.svg'),
       url('../images/bg-bottom.svg');
@@ -120,7 +231,7 @@ article.card.middle {
   }
 
   main {
-    width: auto;
+    width: calc(355px * 3);
     margin: 0 auto;
     display: flex;
     flex-direction: row;
@@ -129,11 +240,16 @@ article.card.middle {
     align-items: center;
   }
 
-  article.card {
-    width: auto;
+  article.card:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+
+  article.card:last-child {
+    border-radius: 0 10px 10px 0;
+    color: var(--dark-grey-blue);
   }
 
   article.card.middle {
-    transition: scale(1.2);
+    height: 540px;
   }
 }

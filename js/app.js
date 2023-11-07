@@ -5,4 +5,6 @@ console.log(whiteSwitch);
 
 toggle.addEventListener('click', function() {
   whiteSwitch.classList.toggle('move-right');
+  let allPrices = document.querySelectorAll('.price');
+  allPrices.forEach(price => price.classList.toggle('hidden'));
 });
